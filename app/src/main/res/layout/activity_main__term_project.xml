@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.a1k9s9_000.termproject.Main_TermProject">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="◎My Logger◎"
+        android:id="@+id/title"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="35dp"
+        android:textIsSelectable="false"
+        android:textStyle="normal|bold|italic"
+        android:textColor="#8132a4" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Introduce Yourself"
+        android:id="@+id/introduce"
+        android:layout_marginTop="45dp"
+        android:layout_below="@+id/title"
+        android:layout_centerHorizontal="true"
+        android:textSize="25dp"
+        android:textStyle="italic"
+        android:width="500dp"
+        android:textColor="#ee9248" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="What are you doing now?"
+        android:id="@+id/event"
+        android:layout_below="@+id/introduce"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:textStyle="italic"
+        android:textSize="25dp"
+        android:width="500dp"
+        android:textColor="#ee9248" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Manage Your Goal!"
+        android:id="@+id/goal"
+        android:layout_below="@+id/event"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:width="500dp"
+        android:textSize="25dp"
+        android:textStyle="italic"
+        android:textColor="#ee9248" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Check Your Statistics"
+        android:id="@+id/statistic"
+        android:layout_below="@+id/goal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:width="500dp"
+        android:textSize="25dp"
+        android:textStyle="italic"
+        android:textColor="#ee9248" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show Nearby Facilities"
+        android:id="@+id/facilities"
+        android:layout_below="@+id/statistic"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:width="500dp"
+        android:textSize="25dp"
+        android:textStyle="italic"
+        android:textColor="#ee9248" />
+
+</RelativeLayout>
