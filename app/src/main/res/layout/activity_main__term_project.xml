@@ -13,77 +13,86 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="◎My Logger◎"
-        android:id="@+id/title"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:textSize="35dp"
+        android:id="@+id/introtitle"
+        android:textSize="60dp"
         android:textIsSelectable="false"
         android:textStyle="normal|bold|italic"
-        android:textColor="#8132a4" />
+        android:textColor="#8132a4"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="68dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Introduce Yourself"
         android:id="@+id/introduce"
-        android:layout_marginTop="45dp"
-        android:layout_below="@+id/title"
-        android:layout_centerHorizontal="true"
-        android:textSize="25dp"
+        android:layout_marginTop="100dp"
+        android:textSize="35dp"
         android:textStyle="italic"
         android:width="500dp"
-        android:textColor="#ee9248" />
+        android:textColor="#ee9248"
+        android:layout_below="@+id/introtitle"
+        android:layout_alignLeft="@+id/event"
+        android:layout_alignStart="@+id/event"
+        android:height="80dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="What are you doing now?"
+        android:text="What Are You Doing now?"
         android:id="@+id/event"
-        android:layout_below="@+id/introduce"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
-        android:textStyle="italic"
-        android:textSize="25dp"
+        android:layout_marginTop="35dp"
         android:width="500dp"
-        android:textColor="#ee9248" />
+        android:textSize="35dp"
+        android:textStyle="italic"
+        android:textColor="#ee9248"
+        android:layout_below="@+id/introduce"
+        android:height="80dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Manage Your Goal!"
         android:id="@+id/goal"
         android:layout_below="@+id/event"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="35dp"
         android:width="500dp"
-        android:textSize="25dp"
+        android:textSize="35dp"
         android:textStyle="italic"
-        android:textColor="#ee9248" />
+        android:textColor="#ee9248"
+        android:height="80dp"
+        android:text="Manage Your Goal!" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Check Your Statistics"
         android:id="@+id/statistic"
-        android:layout_below="@+id/goal"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
         android:width="500dp"
-        android:textSize="25dp"
+        android:textSize="35dp"
         android:textStyle="italic"
-        android:textColor="#ee9248" />
+        android:textColor="#ee9248"
+        android:layout_below="@+id/goal"
+        android:layout_alignLeft="@+id/goal"
+        android:layout_alignStart="@+id/goal"
+        android:layout_marginTop="35dp"
+        android:height="80dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Show Nearby Facilities"
         android:id="@+id/facilities"
-        android:layout_below="@+id/statistic"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
         android:width="500dp"
-        android:textSize="25dp"
+        android:textSize="35dp"
         android:textStyle="italic"
-        android:textColor="#ee9248" />
+        android:textColor="#ee9248"
+        android:height="80dp"
+        android:layout_marginTop="35dp"
+        android:layout_below="@+id/statistic"
+        android:layout_alignLeft="@+id/statistic"
+        android:layout_alignStart="@+id/statistic"/>
 
 </RelativeLayout>
