@@ -9,4 +9,198 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.a1k9s9_000.termproject.Event_Record_TermProject">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="○What are you doing now?○"
+        android:id="@+id/record_title"
+        android:layout_alignParentTop="true"
+        android:textColor="#262df4"
+        android:textStyle="normal|bold|italic"
+        android:textSize="43dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Place: "
+        android:id="@+id/place"
+        android:layout_below="@+id/record_title"
+        android:layout_alignLeft="@+id/record_title"
+        android:layout_alignStart="@+id/record_title"
+        android:layout_marginTop="38dp"
+        android:textStyle="italic"
+        android:textColor="#040404"
+        android:textSize="40dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Event:"
+        android:id="@+id/event"
+        android:textStyle="italic"
+        android:textColor="#040404"
+        android:textSize="40dp"
+        android:layout_marginTop="38dp"
+        android:layout_below="@+id/place"
+        android:layout_alignLeft="@+id/place"
+        android:layout_alignStart="@+id/place" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Latitude: "
+        android:id="@+id/latitude"
+        android:textStyle="italic"
+        android:textColor="#040404"
+        android:textSize="40dp"
+        android:layout_marginTop="38dp"
+        android:layout_below="@+id/event"
+        android:layout_alignLeft="@+id/event"
+        android:layout_alignStart="@+id/event" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Longitude: "
+        android:id="@+id/longitude"
+        android:textStyle="italic"
+        android:textColor="#040404"
+        android:textSize="40dp"
+        android:layout_marginTop="38dp"
+        android:layout_below="@+id/latitude"
+        android:layout_alignLeft="@+id/latitude"
+        android:layout_alignStart="@+id/latitude" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Current Time : "
+        android:id="@+id/time"
+        android:textStyle="italic"
+        android:textColor="#040404"
+        android:textSize="40dp"
+        android:layout_marginTop="38dp"
+        android:layout_below="@+id/longitude"
+        android:layout_alignLeft="@+id/longitude"
+        android:layout_alignStart="@+id/longitude" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date: "
+        android:id="@+id/date"
+        android:textStyle="italic"
+        android:textColor="#040404"
+        android:textSize="40dp"
+        android:layout_marginTop="38dp"
+        android:layout_below="@+id/time"
+        android:layout_alignLeft="@+id/time"
+        android:layout_alignStart="@+id/time" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="latitude"
+        android:id="@+id/info_lat"
+        android:textSize="40dp"
+        android:layout_above="@+id/longitude"
+        android:layout_toRightOf="@+id/latitude"
+        android:layout_toEndOf="@+id/latitude"
+        android:textStyle="bold|italic"
+        android:textColor="#867c7c" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="longitude"
+        android:id="@+id/info_longi"
+        android:textSize="40dp"
+        android:textStyle="bold|italic"
+        android:textColor="#867c7c"
+        android:layout_above="@+id/time"
+        android:layout_toRightOf="@+id/longitude"
+        android:layout_toEndOf="@+id/longitude" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="time"
+        android:id="@+id/info_time"
+        android:textSize="40dp"
+        android:textStyle="bold|italic"
+        android:textColor="#867c7c"
+        android:layout_alignTop="@+id/time"
+        android:layout_toRightOf="@+id/time"
+        android:layout_toEndOf="@+id/time" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="date"
+        android:id="@+id/info_date"
+        android:textSize="40dp"
+        android:textStyle="bold|italic"
+        android:textColor="#867c7c"
+        android:layout_alignTop="@+id/date"
+        android:layout_toRightOf="@+id/event"
+        android:layout_toEndOf="@+id/event" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/info_place"
+        android:layout_alignBottom="@+id/place"
+        android:layout_toRightOf="@+id/place"
+        android:layout_alignRight="@+id/record_title"
+        android:layout_alignEnd="@+id/record_title"
+        android:hint="Where?"
+        android:textSize="35dp"
+        android:textStyle="bold|italic"
+        android:textColor="#f3af39" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/info_event"
+        android:layout_alignBottom="@+id/event"
+        android:layout_toRightOf="@+id/place"
+        android:layout_alignRight="@+id/info_place"
+        android:layout_alignEnd="@+id/info_place"
+        android:hint="What?"
+        android:textStyle="bold|italic"
+        android:textColor="#f3af39"
+        android:textSize="35dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Photo"
+        android:id="@+id/photo"
+        android:layout_marginTop="68dp"
+        android:textStyle="bold|italic"
+        android:textColor="#262df4"
+        android:textSize="25dp"
+        android:width="150dp"
+        android:height="70dp"
+        android:layout_below="@+id/date"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:id="@+id/save"
+        android:textStyle="bold|italic"
+        android:textColor="#262df4"
+        android:textSize="25dp"
+        android:width="150dp"
+        android:height="70dp"
+        android:layout_alignBottom="@+id/photo"
+        android:layout_toRightOf="@+id/latitude"
+        android:layout_toEndOf="@+id/latitude" />
 </RelativeLayout>

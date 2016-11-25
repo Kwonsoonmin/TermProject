@@ -115,7 +115,7 @@ public class Event_TermProject extends AppCompatActivity implements TMapGpsManag
     }
 
     public void addpoint(double lat, double longi) {
-        mapppoint_linked.add(new MapPoint("Record info about here", lat, longi));
+        mapppoint_linked.add(new MapPoint("What are you doing?", lat, longi));
     }
 
     public void showmarkerpoint(int count) {
