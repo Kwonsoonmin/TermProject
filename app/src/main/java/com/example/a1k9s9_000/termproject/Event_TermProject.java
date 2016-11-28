@@ -1,10 +1,12 @@
 package com.example.a1k9s9_000.termproject;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.location.Location;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -41,6 +43,18 @@ public class Event_TermProject extends AppCompatActivity implements TMapGpsManag
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event__term_project);
+
+        AlertDialog alertDialog = new AlertDialog.Builder(this)
+                .setTitle("♠알림♠")
+                .setMessage("마커를 찍고, 기록하는 동안에는 계속 이 화면에 머물러주세요."+"\n"+"자, 그럼 오늘 하루 일정을 기록해주세요!")
+                .setNeutralButton("확인", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                })
+                .show();
+
 
         mContext = this;
 
@@ -137,6 +151,7 @@ public class Event_TermProject extends AppCompatActivity implements TMapGpsManag
 
         Bitmap bitmapigo = BitmapFactory.decodeResource(mContext.getResources(), R.mipmap.i_go);
         item1.setCalloutRightButtonImage(bitmapigo);
+
 
         String strid = String.format("marker%d", markerid++);
 

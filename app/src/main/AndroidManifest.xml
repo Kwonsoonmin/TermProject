@@ -18,7 +18,6 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Main_TermProject" />
         <activity android:name=".Event_TermProject" />
-        <activity android:name=".Introduce_TermProject" />
         <activity android:name=".Goal_TermProject" />
         <activity android:name=".Statistic_TermProject" />
         <activity android:name=".Facilities_TermProject" />

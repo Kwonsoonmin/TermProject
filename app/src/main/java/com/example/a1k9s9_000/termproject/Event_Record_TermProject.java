@@ -1,8 +1,11 @@
 package com.example.a1k9s9_000.termproject;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -56,6 +59,5 @@ public class Event_Record_TermProject extends AppCompatActivity {
 
         info_time.setText(str_timeformat);
         info_date.setText(str_dateformat);
-
     }
 }
