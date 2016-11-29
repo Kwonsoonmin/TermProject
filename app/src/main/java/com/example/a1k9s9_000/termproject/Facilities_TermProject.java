@@ -34,6 +34,8 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
     private TMapView tMapView = null;
     private static String apikey = "d3fa73ac-2d6a-3a13-bee0-39a0de4934b5";
 
+    private String s1 = "";
+
     public void onLocationChange(Location lo) {
         if(m_bTeackingMode) {
             tMapView.setLocationPoint(lo.getLongitude(), lo.getLatitude());
@@ -56,19 +58,43 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
                     public void onClick(DialogInterface dialog, int which) {
                         switch(which) {
                             case 0:
-                                getFacilitiesData_hospital();
-                                break;
+                                 information.setText(getFacilitiesData_hospital());
+                                 break;
+
                             case 1:
-                                getFacilitiesData_convenience();
+                                new Thread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        getFacilitiesData_convenience();
+                                    }
+                                }).start();
                                 break;
+
                             case 2:
-                                getFacilitiesData_bank();
+                                new Thread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        getFacilitiesData_bank();
+                                    }
+                                }).start();
                                 break;
+
                             case 3:
-                                getFacilitiesData_bus();
+                                new Thread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        getFacilitiesData_bus();
+                                    }
+                                }).start();
                                 break;
+
                             case 4:
-                                getFacilitiesData_subway();
+                                new Thread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        getFacilitiesData_subway();
+                                    }
+                                }).start();
                                 break;
                         }
                     }
@@ -90,22 +116,22 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
         tmapgps.OpenGps();
     }
 
-    public void getFacilitiesData_hospital() {
+    public String getFacilitiesData_hospital() {
         TMapData tMapData = new TMapData();
         TMapPoint point = tMapView.getCenterPoint();
+        ArrayList<TMapPOIItem> poi;
 
         tMapdata.findAroundNamePOI(point, "병원",1,99,
                 new TMapData.FindAroundNamePOIListenerCallback() {
 
                     @Override
                     public void onFindAroundNamePOI(ArrayList<TMapPOIItem> poiItem) {
-                        String s = "";
                         for(int i  = 0; i < poiItem.size(); i++) {
                             TMapPOIItem item = poiItem.get(i);
-                            s += item.getPOIAddress().replace("null","") +", "+item.getPOIName()+"\n";
+                            s1+= item.getPOIAddress().replace("null","") +", "+item.getPOIName()+"\n";
                         }
-                       information.setText(s);
                     }});
+        return s1;
     }
 
     public void getFacilitiesData_convenience() {
@@ -123,8 +149,7 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
                             s += item.getPOIAddress().replace("null","") +", "+item.getPOIName()+"\n";
                         }
                         information.setText(s);
-                    }
-                });
+                    }});
     }
 
     public void getFacilitiesData_bank() {

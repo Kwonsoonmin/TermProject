@@ -46,7 +46,7 @@ public class Event_TermProject extends AppCompatActivity implements TMapGpsManag
 
         AlertDialog alertDialog = new AlertDialog.Builder(this)
                 .setTitle("♠알림♠")
-                .setMessage("마커를 찍고, 기록하는 동안에는 계속 이 화면에 머물러주세요."+"\n"+"자, 그럼 오늘 하루 일정을 기록해주세요!")
+                .setMessage("마커를 찍고, 기록하는 동안에는 계속 이 화면에 머물러주세요."+"\n"+"지금 어디에서 무얼하고 계시나요?")
                 .setNeutralButton("확인", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
