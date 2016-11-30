@@ -404,7 +404,7 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
         TMapData tMapData = new TMapData();
         TMapPoint point = tMapView.getCenterPoint();
 
-        tMapdata.findAroundNamePOI(point, "버스",3,99,
+        tMapdata.findAroundNamePOI(point, "버스;",4,99,
                 new TMapData.FindAroundNamePOIListenerCallback() {
 
                     @Override
@@ -436,7 +436,7 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
         TMapData tMapData = new TMapData();
         TMapPoint point = tMapView.getCenterPoint();
 
-        tMapdata.findAroundNamePOI(point, "지하철",3,99,
+        tMapdata.findAroundNamePOI(point, "지하철;",4,99,
                 new TMapData.FindAroundNamePOIListenerCallback() {
 
                     @Override
