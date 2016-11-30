@@ -9,8 +9,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="..."
         android:id="@+id/information_f"
-        android:textSize="35dp"
+        android:textSize="25dp"
         android:textColor="#141111" />
 </ScrollView>
