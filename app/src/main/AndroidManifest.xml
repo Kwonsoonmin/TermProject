@@ -9,7 +9,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -22,7 +22,7 @@
         <activity android:name=".Goal_TermProject" />
         <activity android:name=".Statistic_TermProject" />
         <activity android:name=".Facilities_TermProject" />
-        <activity android:name=".Event_Record_TermProject"></activity>
+        <activity android:name=".Event_Record_TermProject" />
         <activity android:name=".Intro_TermProject">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,6 +30,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Facilities_with_Map_TermsProject"></activity>
     </application>
 
 </manifest>

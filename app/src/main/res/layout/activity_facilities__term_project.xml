@@ -1,15 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:layout_width="match_parent"
     tools:context="com.example.a1k9s9_000.termproject.Facilities_TermProject"
-    android:id="@+id/scroll">
+    android:weightSum="1">
 
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/information_f"
+        android:layout_height="719dp"
+        android:id="@+id/scroll"
+        android:layout_weight="0.48">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/information_f"
+            android:textSize="25dp"
+            android:textColor="#141111" />
+    </ScrollView>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="지도에서 확인하기."
+        android:id="@+id/showmarker"
+        android:layout_weight="0.40"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#1f1b1b"
+        android:textStyle="normal|bold|italic"
         android:textSize="25dp"
-        android:textColor="#141111" />
-</ScrollView>
+        android:width="200dp" />
+</LinearLayout>

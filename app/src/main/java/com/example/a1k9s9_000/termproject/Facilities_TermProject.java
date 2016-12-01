@@ -3,6 +3,7 @@ package com.example.a1k9s9_000.termproject;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.location.Location;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -13,6 +14,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,6 +35,7 @@ import java.util.logging.LogRecord;
 public class Facilities_TermProject extends AppCompatActivity implements TMapGpsManager.onLocationChangedCallback{
     ScrollView scrollView;
     TextView information;
+    Button showmarker;
     private Context mContext = null;
     private boolean m_bTeackingMode = true;
 
@@ -54,6 +58,7 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
         setContentView(R.layout.activity_facilities__term_project);
         scrollView = (ScrollView)findViewById(R.id.scroll);
         information = (TextView)findViewById(R.id.information_f);
+        showmarker = (Button)findViewById(R.id.showmarker);
 
         progress p = new progress();
         p.execute();
@@ -134,13 +139,21 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
 
         tMapView.setTrackingMode(true);
         tMapView.setSightVisible(true);
+
+        showmarker.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Facilities_with_Map_TermsProject.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void getFacilitiesData_hospital() {
         TMapData tMapData = new TMapData();
         TMapPoint point = tMapView.getCenterPoint();
 
-        tMapdata.findAroundNamePOI(point, "병원;내과;소아과;외과;치과;안과;의원;보건소;한의원;약국",3,99,
+        tMapdata.findAroundNamePOI(point, "약국",1,99,
                 new TMapData.FindAroundNamePOIListenerCallback() {
 
                     @Override
@@ -173,7 +186,7 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
         TMapData tMapData = new TMapData();
         TMapPoint point = tMapView.getCenterPoint();
 
-        tMapdata.findAroundNamePOI(point, "편의점",3,99,
+        tMapdata.findAroundNamePOI(point, "편의점",1,99,
                 new TMapData.FindAroundNamePOIListenerCallback() {
 
                     @Override
@@ -206,7 +219,7 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
         TMapData tMapData = new TMapData();
         TMapPoint point = tMapView.getCenterPoint();
 
-        tMapdata.findAroundNamePOI(point, "은행;ATM",3,99,
+        tMapdata.findAroundNamePOI(point, "은행;ATM",1,99,
                 new TMapData.FindAroundNamePOIListenerCallback() {
 
                     @Override
@@ -239,7 +252,7 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
         TMapData tMapData = new TMapData();
         TMapPoint point = tMapView.getCenterPoint();
 
-        tMapdata.findAroundNamePOI(point, "화장실",3,99,
+        tMapdata.findAroundNamePOI(point, "화장실",1,99,
                 new TMapData.FindAroundNamePOIListenerCallback() {
 
                     @Override
@@ -272,7 +285,7 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
         TMapData tMapData = new TMapData();
         TMapPoint point = tMapView.getCenterPoint();
 
-        tMapdata.findAroundNamePOI(point, "관공서",3,99,
+        tMapdata.findAroundNamePOI(point, "관공서",1,99,
                 new TMapData.FindAroundNamePOIListenerCallback() {
 
                     @Override
@@ -305,7 +318,7 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
         TMapData tMapData = new TMapData();
         TMapPoint point = tMapView.getCenterPoint();
 
-        tMapdata.findAroundNamePOI(point, "음식",20,99,
+        tMapdata.findAroundNamePOI(point, "음식",1,99,
                 new TMapData.FindAroundNamePOIListenerCallback() {
 
                     @Override
@@ -338,7 +351,7 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
         TMapData tMapData = new TMapData();
         TMapPoint point = tMapView.getCenterPoint();
 
-        tMapdata.findAroundNamePOI(point, "카페",3,99,
+        tMapdata.findAroundNamePOI(point, "카페",1,99,
                 new TMapData.FindAroundNamePOIListenerCallback() {
 
                     @Override
@@ -371,7 +384,7 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
         TMapData tMapData = new TMapData();
         TMapPoint point = tMapView.getCenterPoint();
 
-        tMapdata.findAroundNamePOI(point, "문화시설;영화관;노래방;PC방;스크린골프장",3,99,
+        tMapdata.findAroundNamePOI(point, "문화시설;영화관;노래방;PC방;스크린골프장",1,99,
                 new TMapData.FindAroundNamePOIListenerCallback() {
 
                     @Override
@@ -404,7 +417,7 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
         TMapData tMapData = new TMapData();
         TMapPoint point = tMapView.getCenterPoint();
 
-        tMapdata.findAroundNamePOI(point, "버스;",4,99,
+        tMapdata.findAroundNamePOI(point, "버스",1,99,
                 new TMapData.FindAroundNamePOIListenerCallback() {
 
                     @Override
@@ -436,7 +449,7 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
         TMapData tMapData = new TMapData();
         TMapPoint point = tMapView.getCenterPoint();
 
-        tMapdata.findAroundNamePOI(point, "지하철;",4,99,
+        tMapdata.findAroundNamePOI(point, "지하철;",2,99,
                 new TMapData.FindAroundNamePOIListenerCallback() {
 
                     @Override
@@ -468,7 +481,7 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
         TMapData tMapData = new TMapData();
         TMapPoint point = tMapView.getCenterPoint();
 
-        tMapdata.findAroundNamePOI(point, "주유소",3,99,
+        tMapdata.findAroundNamePOI(point, "주유소",1,99,
                 new TMapData.FindAroundNamePOIListenerCallback() {
 
                     @Override
