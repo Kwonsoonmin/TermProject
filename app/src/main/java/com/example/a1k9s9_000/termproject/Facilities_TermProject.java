@@ -46,6 +46,8 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
 
     AlertDialog.Builder builder;
 
+    int number = 0;
+
     public void onLocationChange(Location lo) {
         if(m_bTeackingMode) {
             tMapView.setLocationPoint(lo.getLongitude(), lo.getLatitude());
@@ -63,7 +65,7 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
         progress p = new progress();
         p.execute();
 
-        final CharSequence[] items = {"병원 및 약국","편의점","은행","화장실","관공서","음식점","카페","문화시설","버스","지하철","주유소"};
+        final CharSequence[] items = {"병원 및 약국","편의점","은행","화장실","관공서","음식점","카페","문화시설","지하철","주유소"};
         builder = new AlertDialog.Builder(this);
 
         builder.setTitle("※편의시설※")
@@ -72,47 +74,53 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
                     public void onClick(DialogInterface dialog, int which) {
                         switch(which) {
                             case 0:
-                                 getFacilitiesData_hospital();
+                                getFacilitiesData_hospital();
+                                number = 1;
                                  break;
 
                             case 1:
                                 getFacilitiesData_convenience();
+                                number = 2;
                                 break;
 
                             case 2:
                                 getFacilitiesData_bank();
+                                number = 3;
                                 break;
 
                             case 3:
                                 getFacilitiesData_toilet();
+                                number = 4;
                                 break;
 
                             case 4:
                                 getFacilitiesData_government_office();
+                                number = 5;
                                 break;
 
                             case 5:
                                 getFacilitiesData_food();
+                                number = 6;
                                 break;
 
                             case 6:
                                 getFacilitiesData_coffee();
+                                number = 7;
                                 break;
 
                             case 7:
                                 getFacilitiesData_culture();
+                                number = 8;
                                 break;
 
                             case 8:
-                                getFacilitiesData_bus();
+                                getFacilitiesData_subway();
+                                number = 9;
                                 break;
 
                             case 9:
-                                getFacilitiesData_subway();
-                                break;
-
-                            case 10:
                                 getFacilitiesData_gasstation();
+                                number = 10;
                                 break;
                         }
                     }
@@ -144,6 +152,29 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
 
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Facilities_with_Map_TermsProject.class);
+
+                if(number == 1)
+                    intent.putExtra("숫자",1);
+                else if(number == 2)
+                    intent.putExtra("숫자",2);
+                else if(number == 2)
+                    intent.putExtra("숫자",2);
+                else if(number == 3)
+                    intent.putExtra("숫자",3);
+                else if(number == 4)
+                    intent.putExtra("숫자",4);
+                else if(number == 5)
+                    intent.putExtra("숫자",5);
+                else if(number == 6)
+                    intent.putExtra("숫자",6);
+                else if(number == 7)
+                    intent.putExtra("숫자",7);
+                else if(number == 8)
+                    intent.putExtra("숫자",8);
+                else if(number == 9)
+                    intent.putExtra("숫자",9);
+                else if(number == 10)
+                    intent.putExtra("숫자",10);
                 startActivity(intent);
             }
         });
@@ -153,7 +184,7 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
         TMapData tMapData = new TMapData();
         TMapPoint point = tMapView.getCenterPoint();
 
-        tMapdata.findAroundNamePOI(point, "약국",1,99,
+        tMapData.findAroundNamePOI(point, "약국",1,99,
                 new TMapData.FindAroundNamePOIListenerCallback() {
 
                     @Override
@@ -186,7 +217,7 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
         TMapData tMapData = new TMapData();
         TMapPoint point = tMapView.getCenterPoint();
 
-        tMapdata.findAroundNamePOI(point, "편의점",1,99,
+        tMapData.findAroundNamePOI(point, "편의점",1,99,
                 new TMapData.FindAroundNamePOIListenerCallback() {
 
                     @Override
@@ -219,7 +250,7 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
         TMapData tMapData = new TMapData();
         TMapPoint point = tMapView.getCenterPoint();
 
-        tMapdata.findAroundNamePOI(point, "은행;ATM",1,99,
+        tMapData.findAroundNamePOI(point, "은행;ATM",1,99,
                 new TMapData.FindAroundNamePOIListenerCallback() {
 
                     @Override
@@ -252,7 +283,7 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
         TMapData tMapData = new TMapData();
         TMapPoint point = tMapView.getCenterPoint();
 
-        tMapdata.findAroundNamePOI(point, "화장실",1,99,
+        tMapData.findAroundNamePOI(point, "화장실",1,99,
                 new TMapData.FindAroundNamePOIListenerCallback() {
 
                     @Override
@@ -285,7 +316,7 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
         TMapData tMapData = new TMapData();
         TMapPoint point = tMapView.getCenterPoint();
 
-        tMapdata.findAroundNamePOI(point, "관공서",1,99,
+        tMapData.findAroundNamePOI(point, "관공서",1,99,
                 new TMapData.FindAroundNamePOIListenerCallback() {
 
                     @Override
@@ -318,7 +349,7 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
         TMapData tMapData = new TMapData();
         TMapPoint point = tMapView.getCenterPoint();
 
-        tMapdata.findAroundNamePOI(point, "음식",1,99,
+        tMapData.findAroundNamePOI(point, "음식",1,99,
                 new TMapData.FindAroundNamePOIListenerCallback() {
 
                     @Override
@@ -351,7 +382,7 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
         TMapData tMapData = new TMapData();
         TMapPoint point = tMapView.getCenterPoint();
 
-        tMapdata.findAroundNamePOI(point, "카페",1,99,
+        tMapData.findAroundNamePOI(point, "카페",1,99,
                 new TMapData.FindAroundNamePOIListenerCallback() {
 
                     @Override
@@ -384,7 +415,7 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
         TMapData tMapData = new TMapData();
         TMapPoint point = tMapView.getCenterPoint();
 
-        tMapdata.findAroundNamePOI(point, "문화시설;영화관;노래방;PC방;스크린골프장",1,99,
+        tMapData.findAroundNamePOI(point, "문화시설;영화관;노래방;PC방;스크린골프장",1,99,
                 new TMapData.FindAroundNamePOIListenerCallback() {
 
                     @Override
@@ -413,43 +444,11 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
                 });
     }
 
-    public void getFacilitiesData_bus() {
-        TMapData tMapData = new TMapData();
-        TMapPoint point = tMapView.getCenterPoint();
-
-        tMapdata.findAroundNamePOI(point, "버스",1,99,
-                new TMapData.FindAroundNamePOIListenerCallback() {
-
-                    @Override
-                    public void onFindAroundNamePOI(final ArrayList<TMapPOIItem> poiItem) {
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                String s4 = "";
-                                String text3="";
-                                String dis = "";
-                                TMapPoint tp = tMapView.getCenterPoint();
-                                try {
-                                    for (int i = 0; i < poiItem.size(); i++) {
-                                        TMapPOIItem item = poiItem.get(i);
-                                        dis = String.format("%.2f", item.getDistance(tp));
-                                        s4 += item.getPOIAddress().replace("null", "") + "-> " + item.getPOIName() +", 근방 "+dis+"M"+ "\n";
-                                    }
-                                    information.setText(s4);
-                                }catch (NullPointerException ne){
-                                    text3 = "주변에 버스정류장 및 버스터미널이 없습니다.";
-                                    information.setText(text3);
-                                }
-                            }
-                        });
-                    }});
-    }
-
     public void getFacilitiesData_subway() {
         TMapData tMapData = new TMapData();
         TMapPoint point = tMapView.getCenterPoint();
 
-        tMapdata.findAroundNamePOI(point, "지하철;",2,99,
+        tMapData.findAroundNamePOI(point, "지하철;",2,99,
                 new TMapData.FindAroundNamePOIListenerCallback() {
 
                     @Override
@@ -481,7 +480,7 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
         TMapData tMapData = new TMapData();
         TMapPoint point = tMapView.getCenterPoint();
 
-        tMapdata.findAroundNamePOI(point, "주유소",1,99,
+        tMapData.findAroundNamePOI(point, "주유소",1,99,
                 new TMapData.FindAroundNamePOIListenerCallback() {
 
                     @Override
