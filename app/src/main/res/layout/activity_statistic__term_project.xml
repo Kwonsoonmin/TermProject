@@ -9,4 +9,94 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.a1k9s9_000.termproject.Statistic_TermProject">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Year: "
+        android:id="@+id/year"
+        android:layout_below="@+id/record_title"
+        android:layout_alignLeft="@+id/record_title"
+        android:layout_alignStart="@+id/record_title"
+        android:layout_marginTop="38dp"
+        android:textStyle="italic"
+        android:textColor="#040404"
+        android:textSize="40dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Month: "
+        android:id="@+id/month"
+        android:textStyle="italic"
+        android:textColor="#040404"
+        android:textSize="40dp"
+        android:layout_marginTop="38dp"
+        android:layout_below="@+id/year"
+        android:layout_alignLeft="@+id/year"
+        android:layout_alignStart="@+id/year" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Day: "
+        android:id="@+id/day"
+        android:layout_marginTop="38dp"
+        android:textStyle="italic"
+        android:textColor="#040404"
+        android:textSize="40dp"
+        android:layout_below="@+id/month"
+        android:layout_alignLeft="@+id/month"
+        android:layout_alignStart="@+id/month"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/info_year"
+        android:layout_alignBottom="@+id/year"
+        android:layout_toRightOf="@+id/year"
+        android:layout_alignRight="@+id/record_title"
+        android:layout_alignEnd="@+id/record_title"
+        android:hint="Year"
+        android:textSize="35dp"
+        android:textStyle="bold|italic"
+        android:textColor="#f3af39" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/info_month"
+        android:hint="Month"
+        android:textStyle="bold|italic"
+        android:textColor="#f3af39"
+        android:textSize="35dp"
+        android:layout_alignBottom="@+id/month"
+        android:layout_toRightOf="@+id/month"
+        android:layout_toEndOf="@+id/month" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/info_day"
+        android:hint="Day"
+        android:textStyle="bold|italic"
+        android:textColor="#f3af39"
+        android:textSize="35dp"
+        android:layout_alignBottom="@+id/day"
+        android:layout_toRightOf="@+id/day"
+        android:layout_toEndOf="@+id/day" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show Data"
+        android:id="@+id/show"
+        android:layout_marginTop="217dp"
+        android:layout_below="@+id/info_day"
+        android:layout_centerHorizontal="true"
+        android:width="300dp"
+        android:height="80dp"
+        android:textStyle="normal|bold|italic"
+        android:textColor="#f31a1a"
+        android:textSize="30dp" />
+
 </RelativeLayout>

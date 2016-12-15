@@ -16,7 +16,7 @@ public class Main_TermProject extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main__term_project);
 
-        event = (Button)findViewById(R.id.event);
+        event = (Button)findViewById(R.id.month);
         goal = (Button)findViewById(R.id.goal);
         statistic = (Button)findViewById(R.id.statistic);
         facilities = (Button)findViewById(R.id.facilities);

@@ -1,14 +1,13 @@
 package com.example.a1k9s9_000.termproject;
 
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -24,8 +23,8 @@ public class Event_Record_TermProject extends AppCompatActivity {
         setContentView(R.layout.activity_event__record__term_project);
 
         record_title = (TextView)findViewById(R.id.record_title);
-        place = (TextView)findViewById(R.id.place);
-        event = (TextView)findViewById(R.id.event);
+        place = (TextView)findViewById(R.id.year);
+        event = (TextView)findViewById(R.id.month);
         latitude = (TextView)findViewById(R.id.latitude);
         longitude = (TextView)findViewById(R.id.longitude);
         time = (TextView)findViewById(R.id.time);
@@ -52,6 +51,9 @@ public class Event_Record_TermProject extends AppCompatActivity {
         info_longi.setText(longi_record);
 
         SimpleDateFormat dateformat = new SimpleDateFormat("yyyy년 MM월 dd일");
+        SimpleDateFormat year = new SimpleDateFormat("yyyy");
+        SimpleDateFormat month = new SimpleDateFormat("MM");
+        SimpleDateFormat day = new SimpleDateFormat("dd");
         SimpleDateFormat timeformat = new SimpleDateFormat("HH:mm:ss");
 
         String str_dateformat = dateformat.format(date);
@@ -59,5 +61,14 @@ public class Event_Record_TermProject extends AppCompatActivity {
 
         info_time.setText(str_timeformat);
         info_date.setText(str_dateformat);
+
+        photo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(Event_Record_TermProject.this, "Taking Photo!",Toast.LENGTH_SHORT).show();
+                Intent intent1 = new Intent(getApplicationContext(),Image_TermProject.class);
+                startActivity(intent1);
+            }
+        });
     }
 }
