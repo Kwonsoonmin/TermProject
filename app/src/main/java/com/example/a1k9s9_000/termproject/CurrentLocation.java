@@ -11,6 +11,7 @@ import android.widget.Toast;
 /**
  * Created by 1k9s9_000 on 2016-11-24.
  */
+// 현재 위치를 알기 위한 class
 public class CurrentLocation extends AppCompatActivity implements LocationListener{
 
     Context mContext;

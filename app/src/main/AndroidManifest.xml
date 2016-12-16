@@ -34,7 +34,8 @@
         </activity>
         <activity android:name=".Facilities_with_Map_TermsProject" />
         <activity android:name=".Image_TermProject" />
-        <activity android:name=".Show_Data_TermProject"></activity>
+        <activity android:name=".Show_Data_TermProject" />
+        <activity android:name=".Check_Goal_TermProject"></activity>
     </application>
 
 </manifest>

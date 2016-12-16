@@ -62,9 +62,11 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
         information = (TextView)findViewById(R.id.information_f);
         showmarker = (Button)findViewById(R.id.showmarker);
 
+        // 로딩 창 띄우기
         progress p = new progress();
         p.execute();
 
+        // 시설 선택창 보여주기
         final CharSequence[] items = {"병원 및 약국","편의점","은행","화장실","관공서","음식점","카페","문화시설","지하철","주유소"};
         builder = new AlertDialog.Builder(this);
 
@@ -73,51 +75,61 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         switch(which) {
+                            // 병원
                             case 0:
                                 getFacilitiesData_hospital();
                                 number = 1;
                                  break;
 
+                            // 편의점
                             case 1:
                                 getFacilitiesData_convenience();
                                 number = 2;
                                 break;
 
+                            // 은행 및 ATM
                             case 2:
                                 getFacilitiesData_bank();
                                 number = 3;
                                 break;
 
+                            // 화장실
                             case 3:
                                 getFacilitiesData_toilet();
                                 number = 4;
                                 break;
 
+                            // 관공서
                             case 4:
                                 getFacilitiesData_government_office();
                                 number = 5;
                                 break;
 
+                            // 음식점
                             case 5:
                                 getFacilitiesData_food();
                                 number = 6;
                                 break;
 
+                            // 카페
                             case 6:
                                 getFacilitiesData_coffee();
                                 number = 7;
                                 break;
 
+                            // 문화
                             case 7:
                                 getFacilitiesData_culture();
                                 number = 8;
                                 break;
 
+                            // 지하철
                             case 8:
                                 getFacilitiesData_subway();
                                 number = 9;
                                 break;
 
+                            // 주유소
                             case 9:
                                 getFacilitiesData_gasstation();
                                 number = 10;
@@ -148,6 +160,7 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
         tMapView.setTrackingMode(true);
         tMapView.setSightVisible(true);
 
+        // 지도에 표시되는 화면으로 전환
         showmarker.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
@@ -180,6 +193,7 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
         });
     }
 
+    // 각 시설에 관련된 함수 - 카테고리와 찾고자 하는 데이터 수 입력으로 원하는 정보를 얻을 수 있는 함수
     public void getFacilitiesData_hospital() {
         TMapData tMapData = new TMapData();
         TMapPoint point = tMapView.getCenterPoint();
@@ -213,6 +227,7 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
                 });
     }
 
+    // 각 시설에 관련된 함수 - 카테고리와 찾고자 하는 데이터 수 입력으로 원하는 정보를 얻을 수 있는 함수
     public void getFacilitiesData_convenience() {
         TMapData tMapData = new TMapData();
         TMapPoint point = tMapView.getCenterPoint();
@@ -246,6 +261,7 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
                 });
     }
 
+    // 각 시설에 관련된 함수 - 카테고리와 찾고자 하는 데이터 수 입력으로 원하는 정보를 얻을 수 있는 함수
     public void getFacilitiesData_bank() {
         TMapData tMapData = new TMapData();
         TMapPoint point = tMapView.getCenterPoint();
@@ -279,6 +295,7 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
                 });
     }
 
+    // 각 시설에 관련된 함수 - 카테고리와 찾고자 하는 데이터 수 입력으로 원하는 정보를 얻을 수 있는 함수
     public void getFacilitiesData_toilet() {
         TMapData tMapData = new TMapData();
         TMapPoint point = tMapView.getCenterPoint();
@@ -312,6 +329,7 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
                 });
     }
 
+    // 각 시설에 관련된 함수 - 카테고리와 찾고자 하는 데이터 수 입력으로 원하는 정보를 얻을 수 있는 함수
     public void getFacilitiesData_government_office() {
         TMapData tMapData = new TMapData();
         TMapPoint point = tMapView.getCenterPoint();
@@ -345,6 +363,7 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
                 });
     }
 
+    // 각 시설에 관련된 함수 - 카테고리와 찾고자 하는 데이터 수 입력으로 원하는 정보를 얻을 수 있는 함수
     public void getFacilitiesData_food() {
         TMapData tMapData = new TMapData();
         TMapPoint point = tMapView.getCenterPoint();
@@ -378,6 +397,7 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
                 });
     }
 
+    // 각 시설에 관련된 함수 - 카테고리와 찾고자 하는 데이터 수 입력으로 원하는 정보를 얻을 수 있는 함수
     public void getFacilitiesData_coffee() {
         TMapData tMapData = new TMapData();
         TMapPoint point = tMapView.getCenterPoint();
@@ -411,6 +431,7 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
                 });
     }
 
+    // 각 시설에 관련된 함수 - 카테고리와 찾고자 하는 데이터 수 입력으로 원하는 정보를 얻을 수 있는 함수
     public void getFacilitiesData_culture() {
         TMapData tMapData = new TMapData();
         TMapPoint point = tMapView.getCenterPoint();
@@ -444,6 +465,7 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
                 });
     }
 
+    // 각 시설에 관련된 함수 - 카테고리와 찾고자 하는 데이터 수 입력으로 원하는 정보를 얻을 수 있는 함수
     public void getFacilitiesData_subway() {
         TMapData tMapData = new TMapData();
         TMapPoint point = tMapView.getCenterPoint();
@@ -476,6 +498,7 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
                     }});
     }
 
+    // 각 시설에 관련된 함수 - 카테고리와 찾고자 하는 데이터 수 입력으로 원하는 정보를 얻을 수 있는 함수
     public void getFacilitiesData_gasstation() {
         TMapData tMapData = new TMapData();
         TMapPoint point = tMapView.getCenterPoint();
@@ -509,6 +532,7 @@ public class Facilities_TermProject extends AppCompatActivity implements TMapGps
                 });
     }
 
+    // 로딩창을 위한 class
     private class progress extends AsyncTask<Void, Void, Void> {
         ProgressDialog pd = new ProgressDialog(Facilities_TermProject.this);
 

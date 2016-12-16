@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context="com.example.a1k9s9_000.termproject.Image_TermProject"
+    android:weightSum="1">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="700dp"
+        android:id = "@+id/imageview" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Taking Photo"
+        android:id="@+id/photo_b"
+        android:width="300dp"
+        android:height="80dp"
+        android:textColor="#1d24f0"
+        android:textSize="15dp"
+        android:layout_gravity="center_horizontal"
+        android:textStyle="normal|italic" />
+
+</LinearLayout>

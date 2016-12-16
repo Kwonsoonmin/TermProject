@@ -3,6 +3,7 @@ package com.example.a1k9s9_000.termproject;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.location.Location;
@@ -19,6 +20,8 @@ import com.skp.Tmap.TMapMarkerItem;
 import com.skp.Tmap.TMapPoint;
 import com.skp.Tmap.TMapView;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.LinkedList;
 
 public class Event_TermProject extends AppCompatActivity implements TMapGpsManager.onLocationChangedCallback{
@@ -32,6 +35,7 @@ public class Event_TermProject extends AppCompatActivity implements TMapGpsManag
     private LinkedList<TMapPoint> tmappoint_linked = new LinkedList<TMapPoint>();
     private LinkedList<String> markerid_linked = new LinkedList<String>();
     private LinkedList<MapPoint> mapppoint_linked = new LinkedList<MapPoint>();
+    private LinkedList<String> markerid_linked_call = new LinkedList<String>();
 
     public void onLocationChange(Location location) {
         if(m_bTrackingMode) {
@@ -44,9 +48,10 @@ public class Event_TermProject extends AppCompatActivity implements TMapGpsManag
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event__term_project);
 
+        // 사용 방법 알림창
         AlertDialog alertDialog = new AlertDialog.Builder(this)
                 .setTitle("♠알림♠")
-                .setMessage("마커를 찍고, 기록하는 동안에는 계속 이 화면에 머물러주세요."+"\n"+"지금 어디에서 무얼하고 계시나요?")
+                .setMessage("오늘 일정을 새로 등록하시려면 바로 'Marker'를 눌러 기록해주세요." + "\n" + "만약, 그 전에 오늘 일정을 등록하셨다면, "+"\n"+"'Call in'를 눌러 그 전 일정을 불러온 뒤 'Marker'로 새로운 일정을 등록할 수 있습니다.")
                 .setNeutralButton("확인", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -59,7 +64,9 @@ public class Event_TermProject extends AppCompatActivity implements TMapGpsManag
         mContext = this;
 
         Button marker = (Button)findViewById(R.id.marker);
+        Button call = (Button) findViewById(R.id.call);
 
+        // 새로운 일정 등록을 위한 버튼
         marker.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 CurrentLocation cl = new CurrentLocation(Event_TermProject.this);
@@ -76,6 +83,26 @@ public class Event_TermProject extends AppCompatActivity implements TMapGpsManag
                 }
 
                 count++;
+            }
+        });
+
+        // 당일에 이미 등록한 일정이 있다면 그 일정을 불러옴
+        call.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DataBase_s_TermProject dbs = new DataBase_s_TermProject(getApplicationContext(), "List_statistic.db", null, 1);
+                LinkedList<MapPoint> call_in = new LinkedList<MapPoint>();
+                long now = System.currentTimeMillis();
+                Date date = new Date(now);
+
+                SimpleDateFormat year = new SimpleDateFormat("yyyy");
+                SimpleDateFormat month = new SimpleDateFormat("MM");
+                SimpleDateFormat day = new SimpleDateFormat("dd");
+                String str_year = year.format(date);
+                String str_month = month.format(date);
+                String str_day = day.format(date);
+
+                showmarkerpoint_call(dbs.getResult_Forcallin_latitude(str_year,str_month,str_day));
             }
         });
 
@@ -103,6 +130,7 @@ public class Event_TermProject extends AppCompatActivity implements TMapGpsManag
         tMapView.setTrackingMode(true);
         tMapView.setSightVisible(true);
 
+        // 화살표 모양 클릭시 이벤트 등록 화면으로 이동
         tMapView.setOnCalloutRightButtonClickListener(new TMapView.OnCalloutRightButtonClickCallback() {
             @Override
             public void onCalloutRightButton(TMapMarkerItem tMapMarkerItem) {
@@ -128,10 +156,12 @@ public class Event_TermProject extends AppCompatActivity implements TMapGpsManag
         });
     }
 
+    // 새로 일정을 등록할 때 사용하는 함수
     public void addpoint(double lat, double longi) {
         mapppoint_linked.add(new MapPoint("What are you doing?", lat, longi));
     }
 
+    // 새로 일정을 등록할 때, marker를 보이는 함수
     public void showmarkerpoint(int count) {
         TMapPoint point = new TMapPoint(mapppoint_linked.get(count).getLatitude(), mapppoint_linked.get(count).getLongitude());
         TMapMarkerItem item1 = new TMapMarkerItem();
@@ -157,5 +187,33 @@ public class Event_TermProject extends AppCompatActivity implements TMapGpsManag
 
         tMapView.addMarkerItem(strid, item1);
         markerid_linked.add(strid);
+    }
+
+    // 불러온 데이터 marker 표시하는 함수
+    public void showmarkerpoint_call(LinkedList<MapPoint> temp) {
+        int count = 0;
+        while (count < temp.size()) {
+            TMapPoint point = new TMapPoint(temp.get(count).getLatitude(), temp.get(count).getLongitude());
+            TMapMarkerItem item1 = new TMapMarkerItem();
+            Bitmap bitmap = null;
+            bitmap = BitmapFactory.decodeResource(mContext.getResources(), R.mipmap.poi_dot);
+
+            item1.setTMapPoint(point);
+            item1.setName(temp.get(count).getName());
+            item1.setVisible(item1.VISIBLE);
+            item1.setIcon(bitmap);
+
+            bitmap = BitmapFactory.decodeResource(mContext.getResources(), R.mipmap.poi_dot);
+
+            item1.setCalloutTitle((temp.get(count).getName()));
+            item1.setCanShowCallout(true);
+            item1.setAutoCalloutVisible(true);
+
+            String strid = String.format("marker%d", markerid++);
+
+            tMapView.addMarkerItem(strid, item1);
+            markerid_linked_call.add(strid);
+            count++;
+        }
     }
 }

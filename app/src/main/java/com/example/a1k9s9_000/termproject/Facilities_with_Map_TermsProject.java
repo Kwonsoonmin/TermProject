@@ -25,6 +25,7 @@ import com.skp.Tmap.TMapView;
 
 import java.util.ArrayList;
 
+// 앞에서 리스트로 보여줬던 편의 시설 정보를 지도 위치 표시로 제공.
 public class Facilities_with_Map_TermsProject extends AppCompatActivity implements TMapGpsManager.onLocationChangedCallback {
 
     private Context context = null;
@@ -139,6 +140,7 @@ public class Facilities_with_Map_TermsProject extends AppCompatActivity implemen
         });
     }
 
+    // LinkedList에 마커 표시 될 장소 저장
     public void addPoint(ArrayList<TMapPOIItem> itemlist) {
         for(int i = 0; i < itemlist.size(); i++) {
             String name = itemlist.get(i).getPOIName();
@@ -148,6 +150,7 @@ public class Facilities_with_Map_TermsProject extends AppCompatActivity implemen
         }
     }
 
+    // LikedList 내용을 기반으로 지도에 마커 표시
     public void showMarkerPoint() {
         for(int i = 0; i < m_markerPoint.size(); i++) {
             TMapPoint point = new TMapPoint(m_markerPoint.get(i).getLatitude(), m_markerPoint.get(i).getLongitude());

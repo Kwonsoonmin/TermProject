@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 public class Show_Data_TermProject extends AppCompatActivity {
@@ -15,6 +16,7 @@ public class Show_Data_TermProject extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show__data__term_project);
 
+        // 통계 내용이 안보일 경우에 대비한 알림창
         AlertDialog alertDialog = new AlertDialog.Builder(this)
                 .setTitle("♠알림♠")
                 .setMessage("통계 내용이 보이지 않을 경우, 통계 데이터가 존재하지 않는 것입니다."+"\n" +"통계가 보이지 않으면 뒤로 돌아가주세요.")
@@ -30,6 +32,7 @@ public class Show_Data_TermProject extends AppCompatActivity {
 
         Intent intent = getIntent();
 
+        // 이 전 화면에서 데이터 받아오기
         String g_index = intent.getStringExtra("index");
         int g_index_i = Integer.parseInt(g_index);
 
@@ -43,21 +46,24 @@ public class Show_Data_TermProject extends AppCompatActivity {
         String g_temp5 = intent.getStringExtra("tempday5");
         String g_temp6 = intent.getStringExtra("tempday6");
 
+        DataBase_s_TermProject db = new DataBase_s_TermProject(getApplicationContext(), "List_statistic.db",null,1);
 
-        DataBase_s_TermProject db = new DataBase_s_TermProject(getApplicationContext(), "List_statistics.db",null,1);
-
+        // 하루 통계 보기
         if(g_index_i == 0) {
             result.setText(db.getResult_oneday(g_year,g_month,g_day));
         }
 
+        // 3일 통계 보기
         else if(g_index_i == 1) {
             result.setText(db.getResult_three(g_year,g_month,g_day,g_temp1,g_temp2));
         }
 
+        // 일주일 통계 보기
         else if(g_index_i == 2) {
             result.setText(db.getResult_oneweek(g_year, g_month,g_day,g_temp1,g_temp2,g_temp3,g_temp4,g_temp5,g_temp6));
         }
 
+        // 모든 통계 보기
         else
             result.setText(db.getResult());
     }

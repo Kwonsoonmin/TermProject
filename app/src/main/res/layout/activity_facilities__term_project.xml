@@ -31,5 +31,5 @@
         android:textColor="#1f1b1b"
         android:textStyle="normal|bold|italic"
         android:textSize="25dp"
-        android:width="200dp" />
+        android:width="400dp" />
 </LinearLayout>

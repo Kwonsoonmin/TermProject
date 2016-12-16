@@ -18,7 +18,7 @@ import android.widget.Toast;
 import java.io.File;
 
 public class Image_TermProject extends AppCompatActivity {
-    Button getphoto, save;
+    Button getphoto;
     ImageView image;
     Uri imageuri;
     final int REQUEST_CAMERA = 9000;
@@ -28,10 +28,10 @@ public class Image_TermProject extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image__term_project);
 
-        getphoto = (Button) findViewById(R.id.photo_b);
-        save = (Button)findViewById(R.id.save);
-        image = (ImageView) findViewById(R.id.imageview);
+        getphoto = (Button) findViewById(R.id.photo_b); // 카메라 앱으로 이동하는 버튼
+        image = (ImageView) findViewById(R.id.imageview); // 이미지 보여주는 뷰
 
+        // 카메라 앱으로 이동
         getphoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,6 +47,8 @@ public class Image_TermProject extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // 사진이 90도 회전되어 나오는 것을 방지하기 위한 코드
+        // 코드 상에서 90도 회전시켜 사진이 보이도록 한다.
         if(requestCode == REQUEST_CAMERA && resultCode == RESULT_OK) {
             try {
                 String datapath = imageuri.getPath();
@@ -65,15 +67,19 @@ public class Image_TermProject extends AppCompatActivity {
     }
 
     public int exifOrientationToDegrees(int exifOrientation) {
+        // 90도 회전되어있을 때
         if(exifOrientation == ExifInterface.ORIENTATION_ROTATE_90)
             return 90;
+        // 180도 회전되어있을 때
         else if(exifOrientation == ExifInterface.ORIENTATION_ROTATE_180)
             return 180;
+        // 270도 회전되어있을 때
         else if(exifOrientation == ExifInterface.ORIENTATION_ROTATE_270)
             return 270;
         return 0;
     }
 
+    // 회전 시켜 이미지를 Bitmap 형태로 저장하여 return 한다.
     public Bitmap rotate(Bitmap bitmap, int degrees) {
         if(degrees != 0 && bitmap != null) {
             Matrix m = new Matrix();

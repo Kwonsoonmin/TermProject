@@ -21,6 +21,7 @@ public class Main_TermProject extends AppCompatActivity {
         statistic = (Button)findViewById(R.id.statistic);
         facilities = (Button)findViewById(R.id.facilities);
 
+        // 이벤트 기록 화면으로 전환
         event.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Event_TermProject.class);
@@ -28,6 +29,7 @@ public class Main_TermProject extends AppCompatActivity {
             }
         });
 
+        // 목표 관리 화면으로 전환
         goal.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Goal_TermProject.class);
@@ -35,6 +37,7 @@ public class Main_TermProject extends AppCompatActivity {
             }
         });
 
+        // 통계를 볼 수 있는 화면으로 전환
         statistic.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Statistic_TermProject.class);
@@ -42,6 +45,7 @@ public class Main_TermProject extends AppCompatActivity {
             }
         });
 
+        // 편의시설 정보를 볼 수 있는 화면으로 전환
         facilities.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Facilities_TermProject.class);

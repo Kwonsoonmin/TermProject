@@ -40,12 +40,13 @@ public class Statistic_TermProject extends AppCompatActivity {
 
         final Context context = this;
         final CharSequence[] items = {"하루 통계", "3일 통계", "일주일 통계", "모든 통계"};
-        final DataBase_s_TermProject database_s =  new DataBase_s_TermProject(getApplicationContext(), "List_statistics.db",null,1);
+        final DataBase_s_TermProject database_s =  new DataBase_s_TermProject(getApplicationContext(), "List_statistic.db",null,1);
         AlertDialog.Builder alertdialogbuilder = new AlertDialog.Builder(context);
 
         long now = System.currentTimeMillis();
         Date d = new Date(now);
 
+        // 하루 통계, 3일 통계, 일주일 통계, 모든 통계 중 원하는 통계 내용 선택을 위한 선택 메뉴
         alertdialogbuilder.setTitle("보고 싶은 통계를 선택하세요.");
         alertdialogbuilder.setItems(items,
                 new DialogInterface.OnClickListener() {
@@ -86,35 +87,18 @@ public class Statistic_TermProject extends AppCompatActivity {
         AlertDialog alertDialog = alertdialogbuilder.create();
         alertDialog.show();
 
-        final String year_data = year_i.getText().toString();
-        final String month_data = month_i.getText().toString();
-        final String day_data = day_i.getText().toString();
-
-        String day_temp = day_data;
-
-        day_temp = day_temp.trim();
-        int temp0 = !day_temp.equals("")?Integer.parseInt(day_temp):0;
-        int temp1 = temp0 + 1;
-        int temp2 = temp0 + 2;
-        int temp3 = temp0 + 3;
-        int temp4 = temp0 + 4;
-        int temp5 = temp0 + 5;
-        int temp6 = temp0 + 6;
-
-        final String day_temp1 = String.valueOf(temp1);
-        final String day_temp2 = String.valueOf(temp2);
-        final String day_temp3 = String.valueOf(temp3);
-        final String day_temp4 = String.valueOf(temp4);
-        final String day_temp5 = String.valueOf(temp5);
-        final String day_temp6 = String.valueOf(temp6);
-
+        // 통계 보기 화면으로 넘어가기 이 때, 다음 화면에 데이터들을 넘겨준다.
         show.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 switch(index){
+                    // 하루 통계
                     case 0:
                         String index_s= toString().valueOf(index);
                         Intent intent = new Intent(getApplicationContext(), Show_Data_TermProject.class);
+                        String year_data = year_i.getText().toString();
+                        String month_data = month_i.getText().toString();
+                        String day_data = day_i.getText().toString();
                         intent.putExtra("year",year_data);
                         intent.putExtra("month", month_data);
                         intent.putExtra("day", day_data);
@@ -122,34 +106,67 @@ public class Statistic_TermProject extends AppCompatActivity {
                         startActivity(intent);
                         break;
 
+                    // 3일 통계
                     case 1:
                         String index_s1= toString().valueOf(index);
                         Intent intent1 = new Intent(getApplicationContext(), Show_Data_TermProject.class);
-                        intent1.putExtra("year",year_data);
-                        intent1.putExtra("month", month_data);
-                        intent1.putExtra("day", day_data);
+                        String year_data1 = year_i.getText().toString();
+                        String month_data1 = month_i.getText().toString();
+                        String day_data1 = day_i.getText().toString();
+                        String day_temp1 = day_data1;
+                        day_temp1 = day_temp1.trim();
+                        int temp0_1 = !day_temp1.equals("")?Integer.parseInt(day_temp1):0;
+                        int temp1_1 = temp0_1 + 1;
+                        int temp2_1 = temp0_1 + 2;
+                        String day_temp1_1 = String.valueOf(temp1_1);
+                        String day_temp2_1 = String.valueOf(temp2_1);
+                        intent1.putExtra("year",year_data1);
+                        intent1.putExtra("month", month_data1);
+                        intent1.putExtra("day", day_data1);
                         intent1.putExtra("index",index_s1);
-                        intent1.putExtra("tempday1",day_temp1);
-                        intent1.putExtra("tempday2",day_temp2);
+                        intent1.putExtra("tempday1",day_temp1_1);
+                        intent1.putExtra("tempday2",day_temp2_1);
                         startActivity(intent1);
                         break;
 
+                    // 일주일 통계
                     case 2:
                         String index_s2= toString().valueOf(index);
                         Intent intent2 = new Intent(getApplicationContext(), Show_Data_TermProject.class);
-                        intent2.putExtra("year",year_data);
-                        intent2.putExtra("month", month_data);
-                        intent2.putExtra("day", day_data);
+                        String year_data2 = year_i.getText().toString();
+                        String month_data2 = month_i.getText().toString();
+                        String day_data2 = day_i.getText().toString();
+                        String day_temp2 = day_data2;
+
+                        day_temp2 = day_temp2.trim();
+                        int temp0_2 = !day_temp2.equals("")?Integer.parseInt(day_temp2):0;
+                        int temp1_2 = temp0_2 + 1;
+                        int temp2_2 = temp0_2 + 2;
+                        int temp3_2 = temp0_2 + 3;
+                        int temp4_2 = temp0_2 + 4;
+                        int temp5_2 = temp0_2 + 5;
+                        int temp6_2 = temp0_2 + 6;
+
+                        String day_temp1_2 = String.valueOf(temp1_2);
+                        String day_temp2_2 = String.valueOf(temp2_2);
+                        String day_temp3_2 = String.valueOf(temp3_2);
+                        String day_temp4_2 = String.valueOf(temp4_2);
+                        String day_temp5_2 = String.valueOf(temp5_2);
+                        String day_temp6_2 = String.valueOf(temp6_2);
+                        intent2.putExtra("year",year_data2);
+                        intent2.putExtra("month", month_data2);
+                        intent2.putExtra("day", day_data2);
                         intent2.putExtra("index",index_s2);
-                        intent2.putExtra("tempday1",day_temp1);
-                        intent2.putExtra("tempday2",day_temp2);
-                        intent2.putExtra("tempday3",day_temp3);
-                        intent2.putExtra("tempday4",day_temp4);
-                        intent2.putExtra("tempday5",day_temp5);
-                        intent2.putExtra("tempday6",day_temp6);
+                        intent2.putExtra("tempday1",day_temp1_2);
+                        intent2.putExtra("tempday2",day_temp2_2);
+                        intent2.putExtra("tempday3",day_temp3_2);
+                        intent2.putExtra("tempday4",day_temp4_2);
+                        intent2.putExtra("tempday5",day_temp5_2);
+                        intent2.putExtra("tempday6",day_temp6_2);
                         startActivity(intent2);
                         break;
 
+                    // 모든 통계
                     case 3:
                         String index_s3= toString().valueOf(index);
                         Intent intent3 = new Intent(getApplicationContext(), Show_Data_TermProject.class);
@@ -161,6 +178,7 @@ public class Statistic_TermProject extends AppCompatActivity {
         });
     }
 
+    // 하루 통계, 3일 통계, 일주일 통계, 모든 통계를 각각 선택했을 때, 작성해야 되는 내용 안내를 위한 로딩 창
     private class progress extends AsyncTask<Void, Void, Void> {
         ProgressDialog pd = new ProgressDialog(Statistic_TermProject.this);
 

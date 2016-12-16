@@ -19,7 +19,17 @@
                 android:id="@+id/marker"
                 android:text="◈Marker◈"
                 android:textColor="#ef3131"
-                android:textSize="25dp" />
+                android:textSize="25dp"
+                android:textStyle="normal|italic" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/call"
+                android:text="◈Call in◈"
+                android:textColor="#5b9efb"
+                android:textSize="25dp"
+                android:textStyle="normal|italic" />
         </LinearLayout>
 
     <LinearLayout
