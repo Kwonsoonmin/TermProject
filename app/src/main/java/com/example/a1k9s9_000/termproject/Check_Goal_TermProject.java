@@ -93,7 +93,7 @@ public class Check_Goal_TermProject extends AppCompatActivity {
 
                         // 움직인 거리 계산
                         double sum_distance = sum_distance_function(year_1, month_1, day_1, day_2);
-                        String final_dis = String.valueOf(sum_distance);
+                        String final_dis = String.format("%.2f",sum_distance);
                         String format = final_dis + "M";
 
                         real_d.setText(format); // 실제 움직인 거리
