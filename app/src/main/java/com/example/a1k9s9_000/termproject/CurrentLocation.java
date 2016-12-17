@@ -35,7 +35,7 @@ public class CurrentLocation extends AppCompatActivity implements LocationListen
         this.mContext = context;
         getLocation();
     }
-
+    // 현재 위치 구하기
     public Location getLocation() {
         try {
             locationManager = (LocationManager) mContext.getSystemService(LOCATION_SERVICE);

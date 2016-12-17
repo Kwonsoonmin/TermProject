@@ -53,7 +53,7 @@
         android:id="@+id/calorie_ac"
         android:textStyle="normal|bold|italic"
         android:textColor="#475ee1"
-        android:textSize="50dp"
+        android:textSize="48dp"
         android:layout_marginTop="61dp"
         android:layout_below="@+id/distance_ac"
         android:layout_alignParentLeft="true"
@@ -62,10 +62,10 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="등록하기"
+        android:text="Save"
         android:id="@+id/setting"
-        android:textColor="#f74040"
-        android:textStyle="normal|bold|italic"
+        android:textColor="#4046f7"
+        android:textStyle="normal|italic"
         android:width="200dp"
         android:textSize="50dp"
         android:height="80dp"
@@ -77,10 +77,10 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="확인하기"
+        android:text="Check"
         android:id="@+id/check_goal"
-        android:textColor="#f74040"
-        android:textStyle="normal|bold|italic"
+        android:textColor="#4046f7"
+        android:textStyle="normal|italic"
         android:width="200dp"
         android:textSize="50dp"
         android:height="80dp"
@@ -180,8 +180,8 @@
         android:textColor="#110f0f"
         android:textStyle="normal|italic"
         android:textSize="30dp"
-        android:layout_alignTop="@+id/calorie_ac"
-        android:layout_toRightOf="@+id/year2"
-        android:layout_toEndOf="@+id/year2" />
+        android:layout_alignBottom="@+id/calorie_ac"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

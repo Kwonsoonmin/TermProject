@@ -91,12 +91,11 @@
         android:text="..."
         android:id="@+id/goal_d"
         android:textSize="40dp"
-        android:width="200dp"
+        android:width="150dp"
         android:textColor="#fa8ad8"
         android:textStyle="normal|bold|italic"
         android:layout_alignBottom="@+id/distance_ac"
-        android:layout_toRightOf="@+id/distance_ac"
-        android:layout_toEndOf="@+id/distance_ac" />
+        android:layout_toRightOf="@+id/distance_ac" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -107,7 +106,9 @@
         android:width="200dp"
         android:textColor="#fa8ad8"
         android:textStyle="normal|bold|italic"
-        android:layout_above="@+id/calorie_ac"
+        android:layout_above="@+id/achieve_d"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_toRightOf="@+id/goal_d"
         android:layout_toEndOf="@+id/goal_d" />
 
@@ -146,9 +147,9 @@
         android:width="200dp"
         android:textColor="#fa8ad8"
         android:textStyle="normal|bold|italic"
-        android:layout_alignTop="@+id/goal_c"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_above="@+id/achieve_c"
+        android:layout_alignRight="@+id/real_d"
+        android:layout_alignEnd="@+id/real_d" />
 
     <TextView
         android:layout_width="wrap_content"

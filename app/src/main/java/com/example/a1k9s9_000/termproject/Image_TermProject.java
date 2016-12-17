@@ -48,7 +48,7 @@ public class Image_TermProject extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // 사진이 90도 회전되어 나오는 것을 방지하기 위한 코드
-        // 코드 상에서 90도 회전시켜 사진이 보이도록 한다.
+        // 코드 상에서 90도 회전시켜 원래 그대로의 사진이 보이도록 한다.
         if(requestCode == REQUEST_CAMERA && resultCode == RESULT_OK) {
             try {
                 String datapath = imageuri.getPath();
@@ -79,7 +79,7 @@ public class Image_TermProject extends AppCompatActivity {
         return 0;
     }
 
-    // 회전 시켜 이미지를 Bitmap 형태로 저장하여 return 한다.
+    // Bitmap 형의 이미지를 회전시키는 함수.
     public Bitmap rotate(Bitmap bitmap, int degrees) {
         if(degrees != 0 && bitmap != null) {
             Matrix m = new Matrix();

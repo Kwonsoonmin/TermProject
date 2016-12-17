@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+// 인트로 화면.
 public class Intro_TermProject extends AppCompatActivity {
     TextView title;
     Handler handler;
